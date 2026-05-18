@@ -1,0 +1,49 @@
+# Flutter
+**/flutter_*.log
+.dart_tool/
+build/
+pubspec.lock
+*.pub
+*.log
+
+# Android
+**/gradlew
+**/gradlew.bat
+**/local.properties
+**/key.properties
+android/.gradle
+android/app/.cxx
+android/app/build
+
+# iOS
+**/Pods
+**/Podfile.lock
+ios/Flutter/flutter_export_environment.sh
+ios/Runner.xcworkspace
+ios/.xcode.env
+
+# Firebase
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Secrets / Keys
+.env
+*.pem
+*.p12
+*.keystore
+*.jks
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage & Testing
+coverage/
+test_coverage/
