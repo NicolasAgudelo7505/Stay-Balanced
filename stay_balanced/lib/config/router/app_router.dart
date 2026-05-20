@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stay_balanced/presentation/widgets/shared/custom_bottom_navigation_bar.dart';
 import  'package:stay_balanced/presentation/screens/screens.dart';
@@ -12,10 +12,10 @@ final appRouter = GoRouter(
       path: '/onboarding',
       builder: (context, state) => const OnboardingScreen(),
     ),
-    // GoRoute(
-    //   path: '/login',
-    //   builder: (context, state) => const LoginScreen(),
-    // ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
+    ),
 
     // ====================== SHELL ROUTE (Bottom Navigation) ======================
     ShellRoute(
@@ -34,14 +34,14 @@ final appRouter = GoRouter(
           path: '/goals',
           builder: (context, state) => const GoalsScreen(),
         ),
-        // GoRoute(
-        //   path: '/ranking',
-        //   builder: (context, state) => const RankingScreen(),
-        // ),
-        // GoRoute(
-        //   path: '/profile',
-        //   builder: (context, state) => const ProfileScreen(),
-        // ),
+        GoRoute(
+          path: '/ranking',
+          builder: (context, state) => const RankingScreen(),
+        ),
+        GoRoute(
+          path: '/profile',
+          builder: (context, state) => const ProfileScreen(),
+        ),
       ],
     ),
   ],
