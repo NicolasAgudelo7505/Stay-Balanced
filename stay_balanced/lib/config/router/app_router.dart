@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stay_balanced/presentation/widgets/shared/custom_bottom_navigation_bar.dart';
-import  'package:stay_balanced/presentation/screens/screens.dart';
+import 'package:stay_balanced/presentation/screens/screens.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/onboarding',
@@ -12,9 +12,11 @@ final appRouter = GoRouter(
       path: '/onboarding',
       builder: (context, state) => const OnboardingScreen(),
     ),
+    GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
+
     GoRoute(
-      path: '/login',
-      builder: (context, state) => const LoginScreen(),
+      path: '/register',
+      builder: (context, state) => const RegisterScreen(),
     ),
 
     // ====================== SHELL ROUTE (Bottom Navigation) ======================

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stay_balanced/presentation/screens/screens.dart';
 
 class ExpensesScreen extends StatefulWidget {
   const ExpensesScreen({super.key});
@@ -19,10 +20,11 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
         centerTitle: false,
       ),
       floatingActionButton: FloatingActionButton(
+        
         onPressed: () {
-          // TODO: Abrir formulario para agregar gasto
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Próximamente: Agregar nuevo gasto')),
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const AddExpenseScreen()),
           );
         },
         child: const Icon(Icons.add),
@@ -48,7 +50,10 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
                       Text('Gastado este mes', style: TextStyle(fontSize: 14)),
                       Text(
                         '\$890.000',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -58,7 +63,10 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
                       Text('Presupuesto', style: TextStyle(fontSize: 14)),
                       Text(
                         '\$1.500.000',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ],
                   ),

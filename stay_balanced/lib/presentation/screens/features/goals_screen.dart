@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stay_balanced/presentation/screens/screens.dart';
+
 
 class GoalsScreen extends StatefulWidget {
   const GoalsScreen({super.key});
@@ -20,8 +22,9 @@ class _GoalsScreenState extends State<GoalsScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Próximamente: Crear nueva meta')),
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const AddGoalScreen()),
           );
         },
         icon: const Icon(Icons.add),
@@ -32,7 +35,7 @@ class _GoalsScreenState extends State<GoalsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Resumen general
+            // Resumen General
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -87,7 +90,7 @@ class _GoalsScreenState extends State<GoalsScreen> {
 
             const SizedBox(height: 12),
 
-            // Lista de metas
+            // Lista de Metas
             Expanded(
               child: ListView.builder(
                 itemCount: 3,
@@ -97,19 +100,15 @@ class _GoalsScreenState extends State<GoalsScreen> {
                     'Viaje a la playa con amigos',
                     'Curso de Inglés',
                   ];
-                  final amounts = ['2.800.000', '1.500.000', '800.000'];
+                  final targets = ['2.800.000', '1.500.000', '800.000'];
                   final saved = ['980.000', '450.000', '320.000'];
-
-                  double progress = index == 0
-                      ? 0.35
-                      : index == 1
-                          ? 0.30
-                          : 0.40;
+                  final progress = [0.35, 0.30, 0.40];
 
                   return Card(
                     margin: const EdgeInsets.only(bottom: 16),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16)),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Column(
@@ -118,11 +117,13 @@ class _GoalsScreenState extends State<GoalsScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                titles[index],
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600,
+                              Expanded(
+                                child: Text(
+                                  titles[index],
+                                  style: const TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                               Text(
@@ -134,12 +135,12 @@ class _GoalsScreenState extends State<GoalsScreen> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: 10),
                           LinearProgressIndicator(
-                            value: progress,
+                            value: progress[index],
                             backgroundColor: Colors.grey[200],
                             color: Colors.blue,
-                            minHeight: 8,
+                            minHeight: 10,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           const SizedBox(height: 8),
@@ -147,11 +148,11 @@ class _GoalsScreenState extends State<GoalsScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Meta: \$${amounts[index]}',
+                                'Meta: \$${targets[index]}',
                                 style: const TextStyle(fontSize: 14),
                               ),
                               Text(
-                                '${(progress * 100).toInt()}%',
+                                '${(progress[index] * 100).toInt()}%',
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blue,
